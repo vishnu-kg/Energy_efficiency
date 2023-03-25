@@ -1,0 +1,61 @@
+<form action="{{ url_for('predict_energy_efficiency')}}" method="post">
+    <h1>
+        <legend>Enter Building Parameters</legend>
+    </h1>
+    <div class="mb-3">
+        <label class="form-label">Relative Compactness</label>
+        <input class="form-control" type="number" name="relative_compactness" step="0.01" min="0" max="1" placeholder="Enter Relative Compactness" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Surface Area</label>
+        <input class="form-control" type="number" name="surface_area" placeholder="Enter Surface Area" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Wall Area</label>
+        <input class="form-control" type="number" name="wall_area" placeholder="Enter Wall Area" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Roof Area</label>
+        <input class="form-control" type="number" name="roof_area" placeholder="Enter Roof Area" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Overall Height</label>
+        <input class="form-control" type="number" name="overall_height" placeholder="Enter Overall Height" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Orientation</label>
+        <select class="form-control" name="orientation" placeholder="Enter Building Orientation" required>
+            <option class="placeholder" selected disabled value="">Select Building Orientation</option>
+            <option value="2">
+                2
+            </option>
+            <option value="3">
+                3
+            </option>
+            <option value="4">
+                4
+            </option>
+            <option value="5">
+                5
+            </option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Glazing Area</label>
+        <input class="form-control" type="number" name="glazing_area" step="0.01" min="0" max="1" placeholder="Enter Glazing Area" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Glazing Area Distribution</label>
+        <input class="form-control" type="number" name="glazing_area_distribution" step="0.1" min="0" max="5" placeholder="Enter Glazing Area Distribution" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Cooling Load</label>
+        <input class="form-control" type="number" name="cooling_load" step="0.01" placeholder="Enter Cooling Load" required />
+    </div>
+    <div class="mb-3">
+        <input class="btn btn-primary" type="submit" value="Predict Energy Efficiency" required />
+    </div>
+</form>
+<h2>
+   The predicted Cooling Load is {{results}}
+</h2>
